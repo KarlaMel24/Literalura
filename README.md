@@ -31,7 +31,7 @@ Este proyecto tiene como objetivo desarrollar un catálogo de libros interactivo
 
 ## Capturas y Video
 
-- [Video demostrativo de la aplicación](enlace_a_video)
-- [Capturas de la base de datos de libros](enlace_a_capturas)
+- [Video demostrativo de la aplicación](https://github.com/KarlaMel24/Literalura/blob/main/multimedia/ConsolaApp.mp4)
+- [Capturas de la base de datos de libros](https://github.com/KarlaMel24/Literalura/blob/main/multimedia/BD_Libros.png)
 
-- [Capturas de la base de datos de autores](enlace_a_capturas)
+- [Capturas de la base de datos de autores](https://github.com/KarlaMel24/Literalura/blob/main/multimedia/BD_Autores.png)
