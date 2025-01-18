@@ -10,7 +10,6 @@ import com.Literalura.AluraChallenge2.repository.LibrosRepository;
 import com.Literalura.AluraChallenge2.service.ConsumoAPI;
 import com.Literalura.AluraChallenge2.service.ConvertirDatos;
 import com.Literalura.AluraChallenge2.service.LibroService;
-import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,11 +23,8 @@ public class Principal {
     private ConvertirDatos conversor = new ConvertirDatos();
     private ConsumoAPI consumir = new ConsumoAPI();
     private List<datosDeLibrosDTO> listaDatosDeLibrosDTO = new ArrayList<>();
-    //@Autowired
     private LibrosRepository repositorio;
-    //@Autowired
     private LibroService libroService;
-    //@Autowired
     private AutoresRepository autoresRepository; // Agrega el repositorio de autores
 
 
@@ -38,11 +34,10 @@ public class Principal {
         this.repositorio = repository;
         this.autoresRepository = autoresRepository;
     }
-    //public Principal(){}
 
-    public void menuPrincipal(){
+    public void menuPrincipal() {
         var opcion = -1;
-        while (opcion != 0){
+        while (opcion != 0) {
             var menu = """
                     1. Buscar libro por título
                     2. Listar libros registrados
@@ -55,7 +50,7 @@ public class Principal {
             opcion = teclado.nextInt();
             teclado.nextLine();
 
-            switch (opcion){
+            switch (opcion) {
                 case 1:
                     buscarLibroPorTitulo();
                     break;
@@ -91,7 +86,7 @@ public class Principal {
 
         // Obtener los datos de la API en formato JSON
         var json = consumir.obtenerDatos(url);
-        System.out.println("Respuesta de la API: " + json);
+        //System.out.println("Respuesta de la API: " + json);
 
         // Convertir el JSON a datosListaDeLibrosDTO
         datosListaDeLibrosDTO tituloBuscado = conversor.obtenerDatos(json, datosListaDeLibrosDTO.class);
@@ -158,7 +153,7 @@ public class Principal {
 
     private void imprimirDetallesLibro(Libros libros) {
         // Imprimir los detalles del libro
-        System.out.println("----------Libro encontrado:------------");
+        System.out.println("------------LIBRO------------");
         System.out.println("Título: " + libros.getTitulo());
         System.out.println("Autor: " + libros.getAutores().getNombre());
         System.out.println("Idioma: " + libros.getIdioma());
@@ -221,27 +216,6 @@ public class Principal {
         }
     }
 
-
-
-    /*private void autoresVivos(){
-        // Para obtener y guardar el año
-        System.out.println("Escriba el año que desea buscar");
-        var anoDeseado = teclado.nextInt();
-        //Filtrar los autores
-        //List<Autores> autoresVivos = autoresRepository.findAutoresVivos((long) anoDeseado);
-        //System.out.println(autoresVivos);
-        System.out.println(anoDeseado);
-    }
-    private void autoresVivos() {
-        // Para obtener y guardar el año
-        System.out.println("Escriba el año que desea buscar");
-        var anoDeseado = teclado.nextInt();
-
-        //Filtrar los autores vivos
-        List<Autores> autoresVivos = repositorio.listaDeAutoresVivos((long) anoDeseado);
-        System.out.println(autoresVivos);
-    }*/
-
     private void listarLibrosPorIdioma() {
         var opcion = -1;
         var menuIdioma = """
@@ -265,8 +239,8 @@ public class Principal {
                 idioma = "[fr]";
                 break;
             default:
-                System.out.println("Opción incorrecta, buscando español");
-                idioma = "[es]";
+                System.out.println("Opción incorrecta, buscando inglés");
+                idioma = "[en]";
                 break;
         }
 
@@ -281,6 +255,4 @@ public class Principal {
         }
 
     }
-    //}
-
 }
